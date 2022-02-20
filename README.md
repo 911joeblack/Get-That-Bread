@@ -4,4 +4,4 @@ TENTATIVE README, DM OR DISCORD FOR SUGGESTIONS IF ANY
 
 Names:
 
-Shivam Sudame
+Shivam Sudame, Joel Perez
