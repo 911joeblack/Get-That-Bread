@@ -10,40 +10,45 @@
 </script>
 
     </head>
-    <body>
+    <center><body>
         <!-- login infor -->
-        <h1>Heading test</h1>
+        <h1 style="background-color:powderblue;">Heading test</h1>
+		<img src="icon.png" alt="icon" width="120">
             <div>
-                <label>first name</label>
-                <input id="fname" placeholder="Enter First Name">
+                <input type="text" id="fname" placeholder="Enter First Name">
             </div>
             <div>
-                <label>last name</label>
-                <input id="lastname" placeholder="Enter Last Name">
+                <input type="text" id="Lname" placeholder="Enter Last Name">
             </div>
-            <label>email</label>
-            <input id="email" placeholder="enter your email">
+            <input type="text" id="email" placeholder="enter your email">
 
 		<p><button onclick='myfunc()'>sumbit</button></p>
 		<p id="demo"></p>
 
 		
-		<!-- this script/function is messy, please help it-->
+		
 		<script>
 		function myfunc()
 		{
-			var eml,match,name;
-			name=document.getElementById("lastname")
-                  alert("welcome"+" "+name);
-			eml=document.getElementById("email");
-			match=(eml<"xu@gmail.com")?"welcome ":"welcome back ";
-			document.getElementById("demo").innerHTML=match;}
+			if(document.getElementById("Lname").value.length == 0	
+				||document.getElementById("fname").value.length == 0
+				||document.getElementById("email").value.length == 0)
+				{alert("please fill all blank")}
+
+			var name = document.getElementById("fname").value;
+			var list_of_name = ["zhihui","Alex","issac","Shivam","Joel"]
+			
+			if(name!=list_of_name[0]&&name!=list_of_name[1]&&name!=list_of_name[2])
+			{document.getElementById("demo").innerHTML="welcome "+name;}
+			else{document.getElementById("demo").innerHTML="welcome back "+name;}
+
+		}
 		</script>
         </form>
 
 		
 
-		<button onclick="window.location='play-page.html';" value="go next">go next& play</button
+		<button onclick="window.location='next/play-page.html';" value="go next">go next& play</button
 
-</body>
+</body></center>
 </html>
