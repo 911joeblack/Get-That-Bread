@@ -6,7 +6,9 @@
 	<title>Increment count when button is clicked</title>
 </head>
 
-<body style="text-align: center;">
+<body>
+
+<center>
 	<h1 style="color: green;">
 		Playing_page_testing
 	</h1>
@@ -15,12 +17,14 @@
 		Page of countering the numbers of users clicking on button
 	</h4>
 
-	<button id="btn"><img src="cookie.png"></button>
+	<button id="btn"><img src="cookie.png" width="300"></button>
 
 	<p>
 		User clicked <span
 		id="display">0</span> Times(this will be cookie)
 	</p>
+
+	<p id="attc"></p>
 
 	<script type="text/javascript">
 		var count = 0;
@@ -30,8 +34,12 @@
 		btn.onclick = function () {
 			count++;
 			disp.innerHTML = count;
+			if(count >= 1){document.getElementById("attc").innerHTML="achievement accessed: beginner";}
+			if(count >= 20){document.getElementById("attc").innerHTML="achievement accessed: forerunner";}
+			if(count >= 100){document.getElementById("attc").innerHTML="achievement accessed: never hesitate";}
 		}
-	</script>
+	</script></center>
 </body>
 
 </html>
+
