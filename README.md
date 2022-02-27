@@ -6,7 +6,8 @@ https://docs.google.com/spreadsheets/d/1JVLGgqC4CLUfaDtMtA7tQyqt4oa0MZyip2n8xltB
 Additionally, any new ideas or changes should be made on the aforementioned document and communicated through discord.
 
 If you want to add files or change already existing within the github repo, please use the FORK in the topright and create 
-a pull request. This allows us to view any changes and verify their integrity before overwriting already existing code.
+a pull request. This allows us to view any changes and verify their integrity before overwriting already existing code. You can also use
+github dekstop to easily create and view other branches within the repo
 
 Names:
 Shivam Sudame, Joel Perez, Isaac Olvera, Xu Zhihui
