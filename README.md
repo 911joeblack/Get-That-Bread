@@ -4,4 +4,4 @@ TENTATIVE README, DM OR DISCORD FOR SUGGESTIONS IF ANY
 
 Names:
 
-Shivam Sudame, Joel Perez, Isaac Olvera,xu zhihui
+Shivam Sudame, Joel Perez, Isaac Olvera,xu zhihui, Alexander Gomez
