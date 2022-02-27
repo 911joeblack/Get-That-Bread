@@ -10,3 +10,5 @@ a pull request. This allows us to view any changes and verify their integrity be
 
 Names:
 Shivam Sudame, Joel Perez, Isaac Olvera, Xu Zhihui
+
+![image](https://user-images.githubusercontent.com/74622790/155866244-b10bfd82-aaff-4250-aafe-174065cc2c72.png)
