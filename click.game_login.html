@@ -25,19 +25,19 @@
 		<p><button onclick='myfunc()'>sumbit</button></p>
 		<p id="demo"></p>
 
-		
-		
+    <!-- This is me adding a new comment -->
+
 		<script>
 		function myfunc()
 		{
-			if(document.getElementById("Lname").value.length == 0	
+			if(document.getElementById("Lname").value.length == 0
 				||document.getElementById("fname").value.length == 0
 				||document.getElementById("email").value.length == 0)
 				{alert("please fill all blank")}
 
 			var name = document.getElementById("fname").value;
 			var list_of_name = ["zhihui","Alex","issac","Shivam","Joel"]
-			
+
 			if(name!=list_of_name[0]&&name!=list_of_name[1]&&name!=list_of_name[2])
 			{document.getElementById("demo").innerHTML="welcome "+name;}
 			else{document.getElementById("demo").innerHTML="welcome back "+name;}
@@ -46,7 +46,7 @@
 		</script>
         </form>
 
-		
+
 
 		<button onclick="window.location='next/play-page.html';" value="go next">go next& play</button
 
