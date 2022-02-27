@@ -10,6 +10,6 @@ a pull request. This allows us to view any changes and verify their integrity be
 github dekstop to easily create and view other branches within the repo
 
 Names:
-Shivam Sudame, Joel Perez, Isaac Olvera, Xu Zhihui
+Shivam Sudame, Joel Perez, Isaac Olvera, Xu Zhihui, Alexander Gomez
 
 ![image](https://user-images.githubusercontent.com/74622790/155866244-b10bfd82-aaff-4250-aafe-174065cc2c72.png)
