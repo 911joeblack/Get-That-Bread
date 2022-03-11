@@ -147,9 +147,6 @@
 		</style>
 	</head>
 
-
-
-
 	<body>
 		<!-- Image source of background: https://www.vhv.rs/viewpic/hJbhhxo_bread-slice-
 		png-slice-of-bread-transparent-background/ -->
@@ -159,11 +156,7 @@
 			<a href = "Achievement_page.html" style = "float: right; color: gold;"> Achievements </a>
 		</div>
 
-
-
-
-
-
+		<!-- This will be the left hand side of the webpage -->
 		<div class = "sectionLeft">
 			<center>
 				<h2>
@@ -175,11 +168,7 @@
 			<hr>
 		</div>
 
-
-
-
-
-
+		<!-- This will be the middle the webpage -->
 		<div class = "sectionMiddle">
 			<center>
 				<h1>
@@ -202,20 +191,16 @@
 				</div>
 
 				<div>
-					<div style = "text-shadow: 1px 1px 1px #000; color: #fff">
-						<span id = "score"> 0 </span> piece(s) of bread
-					</div>
+					<h4>
+						<div style = "text-shadow: 1px 1px 1px #000; color: #fff">
+							<span id = "score"> 0 </span> piece(s) of bread
+						</div>
+					</h4>
 				</div>
 			</center>
 		</div>
 
-
-
-
-
-
-
-
+		<!-- This will be the right hand side of the webpage -->
 		<div class = "sectionRight">
 			<center>
 				<h2>
@@ -253,15 +238,28 @@
 			shop-on-white-background-->
 			<table class = "breadShop unselectable" onclick = "buyBakeries()">
 				<tr>
-					<td id = "image"><img src = "../pictures/bakery.png" height = "50" width = "50"></td>
+					<td id = "image"><img src = "../pictures/bakery.png"></td>
 					<td id = "item_cost">
 						<p> Bakery </p>
 						<p><span id = "bakery_cost"> 1000 </span></p>
 					</td>
 					<td id = "amount"><span id = "total_bakeries"> 0 </span></td>
 				</tr>
+
+			<!-- Image source: https://www.dreamstime.com/factory-outside-white-background-
+			factory-outside-white-background-d-illustration-image161945708 -->
+			<table class = "breadShop unselectable" onclick = "buyFactories()">
+				<tr>
+					<td id = "image"><img src = "../pictures/bread_factory.png"></td>
+					<td id = "item_cost">
+						<p> Bread Factory </p>
+						<p><span id = "factory_cost"> 10000 </span></p>
+					</td>
+					<td id = "amount"><span  id = "total_factories"> 0 </span></td>
+				</tr>
 		</div>
 
+		<!-- Call the javascript file that has the script for the play page -->
 		<script type = "text/javascript" src = "../js_scripts/Play_page_script.js"> </script>
 	</body>
 </html>

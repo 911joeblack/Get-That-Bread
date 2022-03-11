@@ -11,6 +11,9 @@ var totalGrandpas = 0;
 var bakeryCost = 1000;
 var totalBakeries = 0;
 
+var factoryCost = 10000;
+var totalFactories = 0;
+
 function buyCursor()
 {
   if (score >= cursorCost)
@@ -53,6 +56,20 @@ function buyBakeries()
   }
 }
 
+function buyFactories()
+{
+  if (score >= factoryCost)
+  {
+    score = score - factoryCost;
+    totalFactories = totalFactories + 1;
+    factoryCost = Math.round(factoryCost * 1.15);
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("factory_cost").innerHTML = factoryCost;
+    document.getElementById("total_factories").innerHTML = totalFactories;
+  }
+}
+
 function addToScore(amount)
 {
   score = score + amount;
@@ -62,6 +79,6 @@ function addToScore(amount)
 setInterval(function()
 {
   score = score + totalCursors;
-  score = score + (totalGrandpas * 5) + (totalBakeries * 50)
+  score = score + (totalGrandpas * 5) + (totalBakeries * 50) + (totalFactories * 500)
   document.getElementById("score").innerHTML = score;
 }, 1000);
