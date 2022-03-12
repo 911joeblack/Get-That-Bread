@@ -10,10 +10,10 @@ function myfunc()
   var list_of_name = ["Zhihui", "Alex", "Isaac", "Shivam", "Joel"]
 
   if ((name != list_of_name[0]) && (name != list_of_name[1]) && (name != list_of_name[2]))
-    document.getElementById("demo").innerHTML = "Welcome " + name;
+    document.getElementById("demo").innerHTML = "Welcome " + name + "!";
 
   else
-    document.getElementById("demo").innerHTML = "Welcome back " + name;
+    document.getElementById("demo").innerHTML = "Welcome back " + name + "!";
 }
 
 var dt = new Date();
