@@ -14,6 +14,9 @@ var totalBakeries = 0;
 var factoryCost = 10000;
 var totalFactories = 0;
 
+var mineCost = 50000;
+var totalMines = 0;
+
 function buyCursor()
 {
   if (score >= cursorCost)
@@ -70,6 +73,21 @@ function buyFactories()
   }
 }
 
+function buyMines()
+{
+  if (score >= mineCost)
+  {
+    score = score - mineCost;
+    totalMines = totalMines + 1;
+    mineCost = Math.round(mineCost * 1.15);
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("mine_cost").innerHTML = mineCost;
+    document.getElementById("total_mines").innerHTML = totalMines;
+
+  }
+}
+
 function addToScore(amount)
 {
   score = score + amount;
@@ -79,6 +97,7 @@ function addToScore(amount)
 setInterval(function()
 {
   score = score + totalCursors;
-  score = score + (totalGrandpas * 5) + (totalBakeries * 50) + (totalFactories * 500)
+  score = score + (totalGrandpas * 5) + (totalBakeries * 50) + (totalFactories * 500) +
+  (totalMines * 1000)
   document.getElementById("score").innerHTML = score;
 }, 1000);
