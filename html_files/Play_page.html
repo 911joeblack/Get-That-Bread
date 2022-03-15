@@ -198,6 +198,10 @@
 						</div>
 					</h4>
 				</div>
+
+				<button onclick = "saveGame();"> Save Game </button>
+				<button onclick = "resetGame();"> Reset </button>
+
 			</center>
 		</div>
 
@@ -211,7 +215,7 @@
 				</h2>
 			</center>
 			<hr>
-			
+
 			<!-- Image source: https://www.pngitem.com/middle/JiRo_mouse-cursor-png-
 			computer-mouse-on-screen-transparent/ -->
 			<table class = "breadShop unselectable" onclick = "buyCursor()">
@@ -269,6 +273,19 @@
 						<p><span id = "mine_cost"> 50000 </span></p>
 					</td>
 					<td id = "amount"><span id = "total_mines"> 0 </span></td>
+				</tr>
+
+			<!-- Image source: https://www.dreamstime.com/bread-planet-outer-space-vector-
+			cartoon-funny-art-food-planet-sphere-bun-texture-cosmos-illustration-gui-
+			image173795381 -->
+			<table class = "breadShop unselectable" onclick = "buyPlanets()">
+				<tr>
+					<td id = "image"><img src = "../pictures/bread_planet.png"></td>
+					<td id = "item_cost">
+						<p> Bread Planet </p>
+						<p><span id = "planet_cost"> 1000000 </span></p>
+					</td>
+					<td id = "amount"><span id = "total_planets"> 0 </span></td>
 				</tr>
 		</div>
 
