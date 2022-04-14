@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="login-page">
+  <div class="form">
+    <!--error message-->
+	{% for message in messages %}
+	<h3 style="color: red;">{{message}}</h3>
+	{% endfor %}
+
+  <!--login form-->
+    <form action="login" method="POST">
+		{% csrf_token %}
+      <input type="text" name="username" placeholder="username"/>
+      <input type="password" name="password" placeholder="password"/>
+      <button id="logg" type="submit" name="submit" value="log">login</button>
+      <p class="message">Not registered? <a href="register">Create an account</a></p>
+    </form>
+    <!--login as guest-->
+    <form action="login" method="POST">
+      {% csrf_token %}
+        <input type="text" name="username" placeholder="username"value="guest"readonly style="display: none;"/>
+        <input type="password" name="password" placeholder="password"value="guest"readonly style="display: none;"/>
+        <input type="submit" value="login as guest">
+      </form>
+  </div>
+</div>
+</body>
+</html>
