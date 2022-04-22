@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>contact list</title>
+        <link rel="stylesheet" href="source/style.css">
+	<!--this is gona show time currently-->
+
+    </head>
+    <body>
+        <!-- login infor -->
+        <center>
+
+		<div class="topnav">
+			<a href="../click_game_login/click.game_login.html">Home</a>
+			<a href="../play_page/play-page.html">game page</a>
+			<a href="../story/story.html">Story</a>
+			<a class="active" href="contact.html">Contact</a>
+		</div>
+		
+		<h1>Contact Us</h1>
+		<div class="container">
+  <form action="mailto:xuzhihuieateat@hotmail.com" method="post" enctype="text/plain">
+    <!-- <form method="post" action="subscriberform.php"> -->
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your Email..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</center>
+
+</body>
+</html>

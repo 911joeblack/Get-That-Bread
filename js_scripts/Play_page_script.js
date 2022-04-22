@@ -1,24 +1,36 @@
-
 var score = 0;
 var clickingPower = 1;
+var totalGenRate = 0
 
 var cursorCost = 15;
 var totalCursors = 0;
+var cursorUpgradeCost = 10000;
+var cursorGenRate = 1;
 
 var grandpaCost = 100;
 var totalGrandpas = 0;
+var grandpaUpgradeCost = 100000;
+var grandpaGenRate = 5;
 
 var bakeryCost = 1000;
 var totalBakeries = 0;
+var bakeryUpgradeCost = 1000000;
+var bakeryGenRate = 50;
 
 var factoryCost = 10000;
 var totalFactories = 0;
+var factoryUpgradeCost = 10000000;
+var factoryGenRate = 500;
 
 var mineCost = 50000;
 var totalMines = 0;
+var mineUpgradeCost = 50000000;
+var mineGenRate = 1000;
 
 var planetCost = 1000000;
 var totalPlanets = 0;
+var planetUpgradeCost = 100000000;
+var planetGenRate = 10000;
 
 function buyCursor()
 {
@@ -27,6 +39,7 @@ function buyCursor()
     score = score - cursorCost;
     totalCursors = totalCursors + 1;
     cursorCost = Math.round(cursorCost * 1.15);
+    totalGenRate = totalGenRate + cursorGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("cursor_cost").innerHTML = cursorCost;
@@ -41,6 +54,7 @@ function buyGrandpa()
     score = score - grandpaCost;
     totalGrandpas = totalGrandpas + 1;
     grandpaCost = Math.round(grandpaCost * 1.15);
+    totalGenRate = totalGenRate + grandpaGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("grandpa_cost").innerHTML = grandpaCost;
@@ -55,6 +69,7 @@ function buyBakeries()
     score = score - bakeryCost;
     totalBakeries = totalBakeries + 1;
     bakeryCost = Math.round(bakeryCost * 1.15);
+    totalGenRate = totalGenRate + bakeryGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("bakery_cost").innerHTML = bakeryCost;
@@ -69,6 +84,7 @@ function buyFactories()
     score = score - factoryCost;
     totalFactories = totalFactories + 1;
     factoryCost = Math.round(factoryCost * 1.15);
+    totalGenRate = totalGenRate + factoryGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("factory_cost").innerHTML = factoryCost;
@@ -83,6 +99,7 @@ function buyMines()
     score = score - mineCost;
     totalMines = totalMines + 1;
     mineCost = Math.round(mineCost * 1.15);
+    totalGenRate = totalGenRate + mineGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("mine_cost").innerHTML = mineCost;
@@ -98,10 +115,100 @@ function buyPlanets()
     score = score - planetCost;
     totalPlanets = totalPlanets + 1;
     planetCost = Math.round(planetCost * 1.15);
+    totalGenRate = totalGenRate + planetGenRate;
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("planet_cost").innerHTML = planetCost;
     document.getElementById("total_planets").innerHTML = totalPlanets;
+  }
+}
+
+function buyCursorUpgrade()
+{
+  if(score >= cursorUpgradeCost)
+  {
+    score = score - cursorUpgradeCost
+    totalGenRate = totalGenRate + cursorGenRate*totalCursors;
+    cursorGenRate = cursorGenRate * 2;
+    cursorUpgradeCost = Math.round(cursorUpgradeCost * 2.5);
+
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("cursor_upgrade_cost").innerHTML = cursorUpgradeCost;
+  }
+}
+
+function buyGrandpaUpgrade()
+{
+  if(score >= grandpaUpgradeCost)
+  {
+    score = score - grandpaUpgradeCost
+    totalGenRate = totalGenRate + grandpaGenRate*totalGrandpas;
+    grandpaGenRate = grandpaGenRate * 2;
+    grandpaUpgradeCost = Math.round(grandpaUpgradeCost * 2.5);
+
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("grandpa_upgrade_cost").innerHTML = grandpaUpgradeCost;
+  }
+}
+
+function buyBakeryUpgrade()
+{
+  if(score >= bakeryUpgradeCost)
+  {
+    score = score - bakeryUpgradeCost
+    totalGenRate = totalGenRate + bakeryGenRate*totalBakeries;
+    bakeryGenRate = bakeryGenRate * 2;
+    bakeryUpgradeCost = Math.round(bakeryUpgradeCost * 2.5);
+
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("bakery_upgrade_cost").innerHTML = bakeryUpgradeCost;
+  }
+}
+
+function buyFactoryUpgrade()
+{
+  if(score >= factoryUpgradeCost)
+  {
+    score = score - factoryUpgradeCost;
+    totalGenRate = totalGenRate + factoryGenRate*totalFactories;
+    factoryGenRate = factoryGenRate * 2;
+    factoryUpgradeCost = Math.round(factoryUpgradeCost * 2.5);
+
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("factory_upgrade_cost").innerHTML = factoryUpgradeCost;
+  }
+}
+
+function buyMineUpgrade()
+{
+  if(score >= mineUpgradeCost)
+  {
+    score = score - mineUpgradeCost;
+    totalGenRate = totalGenRate + mineGenRate*totalMines;
+    mineGenRate = mineGenRate * 2;
+    mineUpgradeCost = Math.round(mineUpgradeCost * 2.5);
+
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("mine_upgrade_cost").innerHTML = mineUpgradeCost;
+  }
+}
+
+function buyPlanetUpgrade()
+{
+  if(score >= planetUpgradeCost)
+  {
+    score = score - planetUpgradeCost
+    totalGenRate = totalGenRate + planetGenRate*totalPlanets;
+    planetGenRate = planetGenRate * 2;
+    planetUpgradeCost = Math.round(planetUpgradeCost * 2.5);
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("planet_upgrade_cost").innerHTML = planetUpgradeCost;
   }
 }
 
@@ -129,6 +236,18 @@ function loadGame()
   if (typeof savedGame.totalMines != "undefined") totalMines = savedGame.totalMines;
   if (typeof savedGame.planetCost != "undefined") planetCost = savedGame.planetCost;
   if (typeof savedGame.totalPlanets != "undefined") totalPlanets = savedGame.totalPlanets;
+  if (typeof savedGame.cursorGenRate != "undefined") cursorGenRate = savedGame.cursorGenRate;
+  if (typeof savedGame.grandpaGenRate != "undefined") grandpaGenRate = savedGame.grandpaGenRate;
+  if (typeof savedGame.bakeryGenRate != "undefined") bakeryGenRate = savedGame.bakeryGenRate;
+  if (typeof savedGame.factoryGenRate != "undefined") factoryGenRate = savedGame.factoryGenRate;
+  if (typeof savedGame.mineGenRate != "undefined") mineGenRate = savedGame.mineGenRate;
+  if (typeof savedGame.planetGenRate != "undefined") planetGenRate = savedGame.planetGenRate;
+  if (typeof savedGame.cursorUpgradeCost != "undefined") cursorUpgradeCost = savedGame.cursorUpgradeCost;
+  if (typeof savedGame.grandpaUpgradeCost != "undefined") grandpaUpgradeCost = savedGame.grandpaUpgradeCost;
+  if (typeof savedGame.bakeryUpgradeCost != "undefined") bakeryUpgradeCost = savedGame.bakeryUpgradeCost;
+  if (typeof savedGame.factoryUpgradeCost != "undefined") factoryUpgradeCost = savedGame.factoryUpgradeCost;
+  if (typeof savedGame.mineUpgradeCost != "undefined") mineUpgradeCost = savedGame.mineUpgradeCost;
+  if (typeof savedGame.planetUpgradeCost != "undefined") planetUpgradeCost = savedGame.planetUpgradeCost;
 }
 
 function saveGame()
@@ -147,7 +266,20 @@ function saveGame()
     mineCost: mineCost,
     totalMines: totalMines,
     planetCost: planetCost,
-    totalPlanets: totalPlanets
+    totalPlanets: totalPlanets,
+    cursorGenRate: cursorGenRate,
+    grandpaGenRate: grandpaGenRate,
+    bakeryGenRate: bakeryGenRate,
+    factoryGenRate: factoryGenRate,
+    mineGenRate: mineGenRate,
+    planetGenRate: planetGenRate,
+    cursorUpgradeCost: cursorUpgradeCost,
+    grandpaUpgradeCost: grandpaUpgradeCost,
+    bakeryUpgradeCost: bakeryUpgradeCost,
+    factoryUpgradeCost: factoryUpgradeCost,
+    mineUpgradeCost: mineUpgradeCost,
+    planetUpgradeCost: planetUpgradeCost,
+    totalGenRate: totalGenRate
   };
 
   localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -180,15 +312,23 @@ window.onload = function()
   document.getElementById("total_mines").innerHTML = totalMines;
   document.getElementById("planet_cost").innerHTML = planetCost;
   document.getElementById("total_planets").innerHTML = totalPlanets;
+  document.getElementById("cursor_upgrade_cost").innerHTML = cursorUpgradeCost;
+  document.getElementById("grandpa_upgrade_cost").innerHTML = grandpaUpgradeCost;
+  document.getElementById("bakery_upgrade_cost").innerHTML = bakeryUpgradeCost;
+  document.getElementById("factory_upgrade_cost").innerHTML = factoryUpgradeCost;
+  document.getElementById("mine_upgrade_cost").innerHTML = mineUpgradeCost;
+  document.getElementById("planet_upgrade_cost").innerHTML = planetUpgradeCost;
 };
+
+//to simplify, we should have
+//score = score + totalGenRate
 
 setInterval(function()
 {
-  score = score + totalCursors;
-  score = score + (totalGrandpas * 5) + (totalBakeries * 50) + (totalFactories * 500) +
-  (totalMines * 1000) + (totalPlanets * 10000);
+  score = score + totalGenRate;
   document.getElementById("score").innerHTML = score;
 }, 1000);
+
 
 setInterval(function()
 {

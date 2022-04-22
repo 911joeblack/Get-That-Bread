@@ -31,7 +31,7 @@
 			.topnav a
 			{
 				float: left;
-	  		color: #f2f2f2;
+	  			color: #f2f2f2;
 				text-align: center;
 				padding: 14px 16px;
 				text-decoration: none;
@@ -75,8 +75,9 @@
 			{
 				background-color: #ffffff;
 				border-width: 0;
-				width: 90%;
+				width: 91%;
 				height: 4px;
+				padding-left: 15px;
 			}
 
 			.imageContainer img
@@ -92,15 +93,15 @@
 			{
 				background-image: url("../pictures/bread_background.png");
 				background-attachment: fixed;
-  			background-size: 100% 100%;
+  				background-size: 100% 100%;
 			}
 
 			.breadShop
 			{
 				background-color: #b5b5b5;
 				transition: all .2s ease-in-out;
-				border-radius: 5px;
-				width: 100%;
+				border-radius: 1%;
+				width: 93%;
 				margin: 10px 10px 10px 10px;
 			}
 
@@ -119,6 +120,9 @@
 			{
 				height: 75px;
 				width: 75px;
+				margin-bottom: -4%;
+				margin-left: 1%;
+				margin-top: 1%;
 			}
 
 			.breadShop #item_cost p
@@ -145,6 +149,50 @@
 				user-select: none;
 			}
 
+			.upgrade
+			{
+				background-color: #b5b5b5;
+				transition: all .2s ease-in-out;
+				border-radius: 1%;
+				width: 93%;
+				margin: 10px 10px 10px 10px;
+				padding-right: 20px;
+			}
+
+			.upgrade #image
+			{
+				width: 25%;
+			}
+
+			.upgrade img
+			{
+				height: 75px;
+				width: 75px;
+				margin-bottom: -4%;
+				margin-left: 1%;
+			}
+
+			.upgrade #upgrade_cost p
+			{
+				margin: 0px;
+				width: 65%;
+			}
+
+			.upgrade:hover
+			{
+				background-color: #c7c7c7;
+				transition: all .2s ease-in-out;
+			}
+
+			.upgrade #description
+			{
+				font-size: 14px;
+				color: #000000;
+				font-family: roboto;
+				width: 15%;
+				text-align: left;
+				margin: 0%;
+			}
 		</style>
 	</head>
 
@@ -168,6 +216,82 @@
 				</h2>
 			</center>
 			<hr>
+
+			<!-- EXPERIMENTAL-->
+			<table>
+				<table class = "upgrade unselectable" onclick = "buyCursorUpgrade()">
+					<tr>
+						<td id = "image"><img src = "../pictures/mouse_cursor.png"></td>
+						<td id = "upgrade_cost">
+							<p> Cursor Upgrade </p>
+							<p><span id = "cursor_upgrade_cost"> 10000 </span></p>
+						</td>
+						<td id = "description">
+							<p> Doubles Cursor Earnings</p>
+						</td>
+					</tr>
+
+				<table class = "upgrade unselectable" onclick = "buyGrandpaUpgrade()">
+					<tr>
+						<td id = "image"><img src = "../pictures/grandpa_chef.png"></td>
+						<td id = "upgrade_cost">
+							<p> Grandpa Upgrade</p>
+							<p><span id = "grandpa_upgrade_cost"> 100000 </span></p>
+						</td>
+						<td id = "description">
+							<p> Doubles Grandpa Earnings</p>
+						</td>
+					</tr>
+
+				<table class = "upgrade unselectable" onclick = "buyBakeryUpgrade()">
+					<tr>
+						<td id = "image"><img src = "../pictures/bakery.png"></td>
+						<td id = "upgrade_cost">
+							<p> Bakery Upgrade</p>
+							<p><span id = "bakery_upgrade_cost"> 1000000 </span></p>
+						</td>
+						<td id = "description">
+							<p> Doubles Bakery Earnings </p>
+						</td>
+					</tr>
+				
+					<table class = "upgrade unselectable" onclick = "buyFactoryUpgrade()">
+						<tr>
+							<td id = "image"><img src = "../pictures/bread_factory.png"></td>
+							<td id = "upgrade_cost">
+								<p> Bread Factory Upgrade</p>
+								<p><span id = "factory_upgrade_cost"> 10000000 </span></p>
+							</td>
+							<td id = "description">
+								<p> Doubles Factory Earnings </p>
+							</td>
+						</tr>
+	
+					<table class = "upgrade unselectable" onclick = "buyMineUpgrade()">
+						<tr>
+							<td id = "image"><img src = "../pictures/bread_mine.png"></td>
+							<td id = "upgrade_cost">
+								<p> Bread Mine Upgrade</p>
+								<p><span id = "mine_upgrade_cost"> 50000000 </span></p>
+							</td>
+							<td id = "description">
+								<p> Doubles Mine Earnings</p>
+							</td>
+						</tr>
+
+					<table class = "upgrade unselectable" onclick = "buyPlanetUpgrade()">
+						<tr>
+							<td id = "image"><img src = "../pictures/bread_planet.png"></td>
+							<td id = "upgrade_cost">
+								<p> Bread Planet Upgrade </p>
+								<p><span id = "planet_upgrade_cost"> 100000000 </span></p>
+							</td>
+							<td id = "description">
+								<p> Doubles Planet Earnings</p>
+							</td>
+						</tr>
+				
+			</table>
 		</div>
 
 		<!-- This will be the middle the webpage -->
@@ -219,75 +343,77 @@
 
 			<!-- Image source: https://www.pngitem.com/middle/JiRo_mouse-cursor-png-
 			computer-mouse-on-screen-transparent/ -->
-			<table class = "breadShop unselectable" onclick = "buyCursor()">
-				<tr>
-					<td id = "image"><img src = "../pictures/mouse_cursor.png"></td>
-					<td id = "item_cost">
-						<p> Cursor </p>
-						<p><span id = "cursor_cost"> 15 </span></p>
-					</td>
-					<td id = "amount"><span id = "total_cursors"> 0 </span></td>
-				</tr>
+			<table>
+				<table class = "breadShop unselectable" onclick = "buyCursor()">
+					<tr>
+						<td id = "image"><img src = "../pictures/mouse_cursor.png"></td>
+						<td id = "item_cost">
+							<p> Cursor </p>
+							<p><span id = "cursor_cost"> 15 </span></p>
+						</td>
+						<td id = "amount"><span id = "total_cursors"> 0 </span></td>
+					</tr>
 
-			<!-- Image source: https://stockfresh.com/royalty-free-stock-photos/inviting -->
-			<table class = "breadShop unselectable" onclick = "buyGrandpa()">
-				<tr>
-					<td id = "image"><img src = "../pictures/grandpa_chef.png"></td>
-					<td id = "item_cost">
-						<p> Grandpa </p>
-						<p><span id = "grandpa_cost"> 100 </span></p>
-					</td>
-					<td id = "amount"><span id = "total_grandpas"> 0 </span></td>
-				</tr>
+				<!-- Image source: https://stockfresh.com/royalty-free-stock-photos/inviting -->
+				<table class = "breadShop unselectable" onclick = "buyGrandpa()">
+					<tr>
+						<td id = "image"><img src = "../pictures/grandpa_chef.png"></td>
+						<td id = "item_cost">
+							<p> Grandpa </p>
+							<p><span id = "grandpa_cost"> 100 </span></p>
+						</td>
+						<td id = "amount"><span id = "total_grandpas"> 0 </span></td>
+					</tr>
 
-			<!-- Image source: https://www.vecteezy.com/vector-art/362916-a-bakery-
-			shop-on-white-background-->
-			<table class = "breadShop unselectable" onclick = "buyBakeries()">
-				<tr>
-					<td id = "image"><img src = "../pictures/bakery.png"></td>
-					<td id = "item_cost">
-						<p> Bakery </p>
-						<p><span id = "bakery_cost"> 1000 </span></p>
-					</td>
-					<td id = "amount"><span id = "total_bakeries"> 0 </span></td>
-				</tr>
+				<!-- Image source: https://www.vecteezy.com/vector-art/362916-a-bakery-
+				shop-on-white-background-->
+				<table class = "breadShop unselectable" onclick = "buyBakeries()">
+					<tr>
+						<td id = "image"><img src = "../pictures/bakery.png"></td>
+						<td id = "item_cost">
+							<p> Bakery </p>
+							<p><span id = "bakery_cost"> 1000 </span></p>
+						</td>
+						<td id = "amount"><span id = "total_bakeries"> 0 </span></td>
+					</tr>
 
-			<!-- Image source: https://www.dreamstime.com/factory-outside-white-background-
-			factory-outside-white-background-d-illustration-image161945708 -->
-			<table class = "breadShop unselectable" onclick = "buyFactories()">
-				<tr>
-					<td id = "image"><img src = "../pictures/bread_factory.png"></td>
-					<td id = "item_cost">
-						<p> Bread Factory </p>
-						<p><span id = "factory_cost"> 10000 </span></p>
-					</td>
-					<td id = "amount"><span  id = "total_factories"> 0 </span></td>
-				</tr>
+				<!-- Image source: https://www.dreamstime.com/factory-outside-white-background-
+				factory-outside-white-background-d-illustration-image161945708 -->
+				<table class = "breadShop unselectable" onclick = "buyFactories()">
+					<tr>
+						<td id = "image"><img src = "../pictures/bread_factory.png"></td>
+						<td id = "item_cost">
+							<p> Bread Factory </p>
+							<p><span id = "factory_cost"> 10000 </span></p>
+						</td>
+						<td id = "amount"><span  id = "total_factories"> 0 </span></td>
+					</tr>
 
-			<!-- Image source: https://www.istockphoto.com/vector/mine-gold-illustration-
-			on-white-background-with-place-for-your-text-golden-cave-gm1178023216-329076104 -->
-			<table class = "breadShop unselectable" onclick = "buyMines()">
-				<tr>
-					<td id = "image"><img src = "../pictures/bread_mine.png"></td>
-					<td id = "item_cost">
-						<p> Bread Mine </p>
-						<p><span id = "mine_cost"> 50000 </span></p>
-					</td>
-					<td id = "amount"><span id = "total_mines"> 0 </span></td>
-				</tr>
+				<!-- Image source: https://www.istockphoto.com/vector/mine-gold-illustration-
+				on-white-background-with-place-for-your-text-golden-cave-gm1178023216-329076104 -->
+				<table class = "breadShop unselectable" onclick = "buyMines()">
+					<tr>
+						<td id = "image"><img src = "../pictures/bread_mine.png"></td>
+						<td id = "item_cost">
+							<p> Bread Mine </p>
+							<p><span id = "mine_cost"> 50000 </span></p>
+						</td>
+						<td id = "amount"><span id = "total_mines"> 0 </span></td>
+					</tr>
 
-			<!-- Image source: https://www.dreamstime.com/bread-planet-outer-space-vector-
-			cartoon-funny-art-food-planet-sphere-bun-texture-cosmos-illustration-gui-
-			image173795381 -->
-			<table class = "breadShop unselectable" onclick = "buyPlanets()">
-				<tr>
-					<td id = "image"><img src = "../pictures/bread_planet.png"></td>
-					<td id = "item_cost">
-						<p> Bread Planet </p>
-						<p><span id = "planet_cost"> 1000000 </span></p>
-					</td>
-					<td id = "amount"><span id = "total_planets"> 0 </span></td>
-				</tr>
+				<!-- Image source: https://www.dreamstime.com/bread-planet-outer-space-vector-
+				cartoon-funny-art-food-planet-sphere-bun-texture-cosmos-illustration-gui-
+				image173795381 -->
+				<table class = "breadShop unselectable" onclick = "buyPlanets()">
+					<tr>
+						<td id = "image"><img src = "../pictures/bread_planet.png"></td>
+						<td id = "item_cost">
+							<p> Bread Planet </p>
+							<p><span id = "planet_cost"> 1000000 </span></p>
+						</td>
+						<td id = "amount"><span id = "total_planets"> 0 </span></td>
+					</tr>
+			</table>
 		</div>
 
 		<!-- Call the javascript file that has the script for the play page -->
