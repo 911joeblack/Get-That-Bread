@@ -1,6 +1,10 @@
 var score = 0;
+var totalClicks = 0;
 var clickingPower = 1;
 var totalGenRate = 0
+
+var storePurchases = 0;
+var initialUpgrade = 0;
 
 var cursorCost = 15;
 var totalCursors = 0;
@@ -32,6 +36,31 @@ var totalPlanets = 0;
 var planetUpgradeCost = 100000000;
 var planetGenRate = 10000;
 
+/*To read left to right top to bottom 
+on the achievement menu*/
+let achievementProgress = [0,0,0,0,0,0,0,0,0];
+
+function achievementReload(array)
+{
+  for(let i = 0; i < array.length - 1; i++)
+  {
+    if(array[i] == 1)
+    {
+      document.getElementById("achieve" + i).style.color = "gold";
+    }
+    else
+    {
+      document.getElementById("achieve" + i).style.color = "white";
+    }
+  }
+}
+
+function achieveEarn(index)
+{
+  achievementProgress[index] = 1;
+  document.getElementById("achieve" + index).style.color = "gold";
+}
+
 function buyCursor()
 {
   if (score >= cursorCost)
@@ -44,6 +73,12 @@ function buyCursor()
     document.getElementById("score").innerHTML = score;
     document.getElementById("cursor_cost").innerHTML = cursorCost;
     document.getElementById("total_cursors").innerHTML = totalCursors;
+    
+    achieveEarn(3);
+    if(totalCursors == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -59,6 +94,10 @@ function buyGrandpa()
     document.getElementById("score").innerHTML = score;
     document.getElementById("grandpa_cost").innerHTML = grandpaCost;
     document.getElementById("total_grandpas").innerHTML = totalGrandpas;
+    if(totalGrandpas == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -74,6 +113,10 @@ function buyBakeries()
     document.getElementById("score").innerHTML = score;
     document.getElementById("bakery_cost").innerHTML = bakeryCost;
     document.getElementById("total_bakeries").innerHTML = totalBakeries;
+    if(totalBakeries == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -89,6 +132,10 @@ function buyFactories()
     document.getElementById("score").innerHTML = score;
     document.getElementById("factory_cost").innerHTML = factoryCost;
     document.getElementById("total_factories").innerHTML = totalFactories;
+    if(totalFactories == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -104,7 +151,10 @@ function buyMines()
     document.getElementById("score").innerHTML = score;
     document.getElementById("mine_cost").innerHTML = mineCost;
     document.getElementById("total_mines").innerHTML = totalMines;
-
+    if(totalMines == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -116,10 +166,15 @@ function buyPlanets()
     totalPlanets = totalPlanets + 1;
     planetCost = Math.round(planetCost * 1.15);
     totalGenRate = totalGenRate + planetGenRate;
+    achieveEarn(6);
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("planet_cost").innerHTML = planetCost;
     document.getElementById("total_planets").innerHTML = totalPlanets;
+    if(totalPlanets == 1)
+    {
+      storePurchases = storePurchases + 1;
+    }
   }
 }
 
@@ -127,11 +182,19 @@ function buyCursorUpgrade()
 {
   if(score >= cursorUpgradeCost)
   {
+    if(cursorUpgradeCost == 10000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
+
     score = score - cursorUpgradeCost
     totalGenRate = totalGenRate + cursorGenRate*totalCursors;
     cursorGenRate = cursorGenRate * 2;
     cursorUpgradeCost = Math.round(cursorUpgradeCost * 2.5);
-
 
     document.getElementById("score").innerHTML = score;
     document.getElementById("cursor_upgrade_cost").innerHTML = cursorUpgradeCost;
@@ -142,6 +205,14 @@ function buyGrandpaUpgrade()
 {
   if(score >= grandpaUpgradeCost)
   {
+    if(grandpaUpgradeCost == 100000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
     score = score - grandpaUpgradeCost
     totalGenRate = totalGenRate + grandpaGenRate*totalGrandpas;
     grandpaGenRate = grandpaGenRate * 2;
@@ -157,6 +228,14 @@ function buyBakeryUpgrade()
 {
   if(score >= bakeryUpgradeCost)
   {
+    if(bakeryUpgradeCost == 1000000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
     score = score - bakeryUpgradeCost
     totalGenRate = totalGenRate + bakeryGenRate*totalBakeries;
     bakeryGenRate = bakeryGenRate * 2;
@@ -172,6 +251,14 @@ function buyFactoryUpgrade()
 {
   if(score >= factoryUpgradeCost)
   {
+    if(factoryUpgradeCost == 10000000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
     score = score - factoryUpgradeCost;
     totalGenRate = totalGenRate + factoryGenRate*totalFactories;
     factoryGenRate = factoryGenRate * 2;
@@ -187,6 +274,14 @@ function buyMineUpgrade()
 {
   if(score >= mineUpgradeCost)
   {
+    if(mineUpgradeCost == 50000000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
     score = score - mineUpgradeCost;
     totalGenRate = totalGenRate + mineGenRate*totalMines;
     mineGenRate = mineGenRate * 2;
@@ -202,6 +297,14 @@ function buyPlanetUpgrade()
 {
   if(score >= planetUpgradeCost)
   {
+    if(planetUpgradeCost == 100000000)
+    {
+      initialUpgrade = initialUpgrade + 1;
+      if(initialUpgrade == 1)
+      {
+        achieveEarn(4);
+      }
+    }
     score = score - planetUpgradeCost
     totalGenRate = totalGenRate + planetGenRate*totalPlanets;
     planetGenRate = planetGenRate * 2;
@@ -212,16 +315,21 @@ function buyPlanetUpgrade()
   }
 }
 
-function addToScore(amount)
+function addToScore()
 {
-  score = score + amount;
+  score = score + clickingPower;
+  totalClicks = totalClicks + 1;
+  if(totalClicks >= 1000)
+  {
+    achieveEarn(1);
+  }
   document.getElementById("score").innerHTML = score;
 }
 
 function loadGame()
 {
-  var savedGame = JSON.parse(localStorage.getItem("gameSave"))
-
+  var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+ 
   if (typeof savedGame.score != "undefined") score = savedGame.score;
   if (typeof savedGame.clickingPower != "undefined") clickingPower = savedGame.clickingPower;
   if (typeof savedGame.cursorCost != "undefined") cursorCost = savedGame.cursorCost;
@@ -248,10 +356,21 @@ function loadGame()
   if (typeof savedGame.factoryUpgradeCost != "undefined") factoryUpgradeCost = savedGame.factoryUpgradeCost;
   if (typeof savedGame.mineUpgradeCost != "undefined") mineUpgradeCost = savedGame.mineUpgradeCost;
   if (typeof savedGame.planetUpgradeCost != "undefined") planetUpgradeCost = savedGame.planetUpgradeCost;
+  if (typeof savedGame.totalGenRate != "undefined") totalGenRate = savedGame.totalGenRate;
+  if (typeof savedGame.totalClicks != "undefined") totalClicks = savedGame.totalClicks;
+  if (typeof savedGame.storePurchases != "undefined") storePurchases = savedGame.storePurchases;
+  if (typeof savedGame.initialUpgrade != "undefined") initialUpgrade = savedGame.initialUpgrade;
+
+  achievementProgress = JSON.parse(localStorage.getItem("achievementProgress"));
+  if (typeof achievementProgress != "undefined") achievementReload(achievementProgress);
 }
 
 function saveGame()
 {
+ 
+  var progObj = JSON.stringify(achievementProgress);
+  localStorage.setItem("achievementProgress", progObj);
+
   var gameSave = {
     score: score,
     clickingPower: clickingPower,
@@ -279,7 +398,10 @@ function saveGame()
     factoryUpgradeCost: factoryUpgradeCost,
     mineUpgradeCost: mineUpgradeCost,
     planetUpgradeCost: planetUpgradeCost,
-    totalGenRate: totalGenRate
+    totalGenRate: totalGenRate,
+    totalClicks: totalClicks,
+    storePurchases: storePurchases,
+    initialUpgrade: initialUpgrade
   };
 
   localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -291,7 +413,10 @@ function resetGame()
   {
     var gameSave = {};
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
+    achievementProgress = [0,0,0,0,0,0,0,0,1];
+    localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
     location.reload();
+    achievementReload(achievementProgress);
   }
 }
 
@@ -320,17 +445,32 @@ window.onload = function()
   document.getElementById("planet_upgrade_cost").innerHTML = planetUpgradeCost;
 };
 
-//to simplify, we should have
-//score = score + totalGenRate
-
 setInterval(function()
 {
   score = score + totalGenRate;
-  document.getElementById("score").innerHTML = score;
-}, 1000);
 
+  if((initialUpgrade + storePurchases) == 12)
+  {
+    achieveEarn(5);
+  }
+
+  document.getElementById("score").innerHTML = score;
+  if(score >= 1000)
+  {
+    achieveEarn(0);
+    if(score >= 1000000)
+    {
+      achieveEarn(2);
+      if(score >= 1000000000);
+      {
+        achieveEarn(7);
+      }
+    }
+  }
+  }, 1000
+);
 
 setInterval(function()
 {
   saveGame();
-}, 30000);
+}, 3000);
