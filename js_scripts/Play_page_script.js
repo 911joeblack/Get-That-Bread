@@ -336,12 +336,22 @@ function closeNav()
   document.getElementById("myNav").style.width = "0%";
 }
 
+// Bread Slice Image
 function changeImage()
 {
   var image = document.getElementById("m_image");
-  image.src = "../pictures/bread_slice.png";
   image.height = "340";
   image.width = "260";
+  image.src = "../pictures/bread_slice.png";
+}
+
+// Bread Roll Image
+function changeImage2()
+{
+  var image = document.getElementById("m_image");
+  image.height = "400";
+  image.width = "500";
+  image.src = "../pictures/bread_roll.png";
 }
 
 function loadGame()
