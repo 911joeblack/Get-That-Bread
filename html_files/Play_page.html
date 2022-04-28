@@ -5,7 +5,6 @@
 
 		<!-- Browser title will always be: Bread Clicker -->
 		<title> Bread Clicker </title>
-
 		<style>
 			.fac
 			{
@@ -67,6 +66,20 @@
 			.sectionMiddle
 			{
 				float: left;
+				width: 50%;
+				height: 100%;
+			}
+
+			.sectionRightOverlay
+			{
+				float: right;
+				width: 50%;
+				height: 100%;
+			}
+
+			.sectionLeftOverlay
+			{
+			  float: left;
 				width: 50%;
 				height: 100%;
 			}
@@ -145,17 +158,113 @@
 				user-select: none;
 			}
 
+			.overlay
+			{
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  left: 0;
+			  top: 0;
+			  background-color: rgb(190, 190, 190);
+			  background-color: rgba(190, 190, 190, 0.9);
+			  overflow-x: hidden;
+			  transition: 1.0s;
+			}
+
+			.overlay-content
+			{
+			  position: relative;
+			  top: 25%;
+			  width: 100%;
+			  text-align: center;
+			  margin-top: 30px;
+			}
+
+			.overlay a
+			{
+			  padding: 8px;
+			  text-decoration: none;
+			  font-size: 36px;
+			  color: #000000;
+			  display: block;
+			  transition: 0.3s;
+			}
+
+			.overlay a:hover, .overlay a:focus
+			{
+			  color: #f1f1f1;
+			}
+
+			.overlay .closebtn
+			{
+			  position: absolute;
+			  top: 20px;
+			  right: 45px;
+			  font-size: 60px;
+			}
+
+			@media screen and (max-height: 450px)
+			{
+			  .overlay a {font-size: 20px}
+			  .overlay .closebtn
+				{
+			    font-size: 40px;
+			    top: 15px;
+			    right: 35px;
+			  }
+			}
+
+			.cursor
+			{
+				cursor: pointer;
+			}
 		</style>
 	</head>
 
 	<body>
+		<div id="myNav" class="overlay">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<center>
+				<h1>
+					<div style = "text-shadow: 1px 1px 1px #000; color: #fff">
+					Bread Skins
+					</div>
+				</h1>
+
+				<h4>
+					<div style = "text-shadow: 1px 1px 1px #000; color: #fff">
+						<!-- Page of countering the numbers of users clicking on button -->
+						Click on a bread to change your skin!
+					</div>
+				</h4>
+				<hr>
+
+			  <div class="overlay-content">
+			    <div class = "sectionLeftOverlay">
+						<h1>
+							<div style = "text-shadow: 1px 1px 1px #000; color: #fff">
+							Bread Slice
+							</div>
+						</h1>
+
+						<img src = "../pictures/bread_slice.png" height = "440" width = "360" onclick = "changeImage()">
+					</div>
+
+					<div class = "sectionRightOverlay">
+			  </div>
+			</center>
+		</div>
+
 		<!-- Image source of background: https://www.vhv.rs/viewpic/hJbhhxo_bread-slice-
 		png-slice-of-bread-transparent-background/ -->
 		<div class = "topnav">
-			<a href = "javascript:history.back()"> Home </a>
-			<a class = "active" href = "Play_page.html"> Game </a>
-			<a href = "Achievement_page.html" style = "float: right; color: gold;"> Achievements </a>
-			<a href = "Skins_page.html" style = "float: left;"> Skins </a>
+			<div class = "cursor">
+				<a href = "javascript:history.back()"> Home </a>
+				<a class = "active" href = "Play_page.html"> Game </a>
+				<a href = "Achievement_page.html" style = "float: right; color: gold;"> Achievements </a>
+				<a onclick = "openNav()" style = "float: left;"> Skins </a>
+			</div>
 		</div>
 
 		<!-- This will be the left hand side of the webpage -->
@@ -189,7 +298,7 @@
 				<div class = "imageContainer unselectable">
 					<!-- Image source: https://www.vhv.rs/viewpic/hJbhhxo_bread-slice-png-
 					slice-of-bread-transparent-background/ -->
-					<img src = "../pictures/bread_slice.png" height = "340" width = "260" onclick = "addToScore(clickingPower)">
+					<img src = "../pictures/bread_slice.png" height = "340" width = "260" id = "m_image" onclick = "addToScore(clickingPower)">
 				</div>
 
 				<div>
