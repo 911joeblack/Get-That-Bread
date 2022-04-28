@@ -354,6 +354,15 @@ function changeImage2()
   image.src = "../pictures/bread_roll.png";
 }
 
+// Concha Image
+function changeImage3()
+{
+  var image = document.getElementById("m_image");
+  image.height = "400";
+  image.width = "650";
+  image.src = "../pictures/concha.png";
+}
+
 function loadGame()
 {
   var savedGame = JSON.parse(localStorage.getItem("gameSave"));
