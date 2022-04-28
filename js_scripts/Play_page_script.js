@@ -340,27 +340,36 @@ function closeNav()
 function changeImage()
 {
   var image = document.getElementById("m_image");
+  image.src = "../pictures/bread_slice.png";
   image.height = "340";
   image.width = "260";
-  image.src = "../pictures/bread_slice.png";
 }
 
 // Bread Roll Image
 function changeImage2()
 {
   var image = document.getElementById("m_image");
+  image.src = "../pictures/bread_roll.png";
   image.height = "400";
   image.width = "500";
-  image.src = "../pictures/bread_roll.png";
 }
 
 // Concha Image
 function changeImage3()
 {
   var image = document.getElementById("m_image");
+  image.src = "../pictures/concha.png";
   image.height = "400";
   image.width = "650";
-  image.src = "../pictures/concha.png";
+}
+
+// Bagel Image
+function changeImage4()
+{
+  var image = document.getElementById("m_image");
+  image.src = "../pictures/bagel.png";
+  image.height = "400";
+  image.width = "600";
 }
 
 function loadGame()
