@@ -50,6 +50,7 @@ function achievementReload(array)
       document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
       document.getElementById("lck_text" + (i + 1)).style.color = "#2BFF00";
     }
+
     else
     {
       document.getElementById("achieve" + i).style.color = "white";
@@ -61,6 +62,8 @@ function achieveEarn(index)
 {
   achievementProgress[index] = 1;
   document.getElementById("achieve" + index).style.color = "gold";
+  document.getElementById("lck_text" + (index + 1)).innerHTML = "Unlocked";
+  document.getElementById("lck_text" + (index + 1)).style.color = "#2BFF00";
 }
 
 function buyCursor()
