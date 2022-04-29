@@ -42,18 +42,33 @@ let achievementProgress = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function achievementReload(array)
 {
-  for(let i = 0; i < array.length - 1; i++)
+  for(let i = 0; i < array.length; i++)
   {
-    if(array[i] == 1)
+    if(i < 6)
     {
-      document.getElementById("achieve" + i).style.color = "gold";
-      document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
-      document.getElementById("lck_text" + (i + 1)).style.color = "#2BFF00";
-    }
+      if(array[i] == 1)
+      {
+        document.getElementById("achieve" + i).style.color = "gold";
+        document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
+        document.getElementById("lck_text" + (i + 1)).style.color = "#2BFF00";
+      }
 
+      else
+      {
+        document.getElementById("achieve" + i).style.color = "white";
+      }
+    }
     else
     {
-      document.getElementById("achieve" + i).style.color = "white";
+      if(array[i] == 1)
+      {
+        document.getElementById("achieve" + i).style.color = "gold";
+      }
+
+      else
+      {
+        document.getElementById("achieve" + i).style.color = "white";
+      }
     }
   }
 }
@@ -62,8 +77,11 @@ function achieveEarn(index)
 {
   achievementProgress[index] = 1;
   document.getElementById("achieve" + index).style.color = "gold";
-  document.getElementById("lck_text" + (index + 1)).innerHTML = "Unlocked";
-  document.getElementById("lck_text" + (index + 1)).style.color = "#2BFF00";
+  if(index < 6)
+  {
+    document.getElementById("lck_text" + (index + 1)).innerHTML = "Unlocked";
+    document.getElementById("lck_text" + (index + 1)).style.color = "#2BFF00";
+  }
 }
 
 function buyCursor()
@@ -418,10 +436,12 @@ function resetGame()
   {
     var gameSave = {};
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
-    achievementProgress = [0,0,0,0,0,0,0,0,1];
+    achievementProgress.forEach((element, index) => {
+      achievementProgress[index] = 0;
+    });
+    achieveEarn(8);
     localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
     location.reload();
-    achievementReload(achievementProgress);
   }
 }
 
