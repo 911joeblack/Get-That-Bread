@@ -372,7 +372,7 @@ function changeImage4()
   image.width = "600";
 }
 
-// ENglish Muffin Image
+// English Muffin Image
 function changeImage5()
 {
   var image = document.getElementById("m_image");
@@ -380,6 +380,16 @@ function changeImage5()
   image.height = "300";
   image.width = "600";
 }
+
+// Banana Crepe Image
+function changeImage6()
+{
+  var image = document.getElementById("m_image");
+  image.src = "../pictures/banana_crepe.png";
+  image.height = "400";
+  image.width = "500";
+}
+
 
 function loadGame()
 {
