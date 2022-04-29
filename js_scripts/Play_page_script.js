@@ -44,11 +44,16 @@ function achievementReload(array)
 {
   for(let i = 0; i < array.length; i++)
   {
+<<<<<<< HEAD
     if (i < 5)
+=======
+    if(i < 6)
+>>>>>>> feb1c8e2ec021c3a619c9f7b029369bf1b9c74ce
     {
       if(array[i] == 1)
       {
         document.getElementById("achieve" + i).style.color = "gold";
+<<<<<<< HEAD
         document.getElementById("lck_text" + i).innerHTML = "Unlocked";
         document.getElementById("lck_text" + i).style.color = "#2BFF00";
       }
@@ -58,7 +63,17 @@ function achievementReload(array)
         document.getElementById("achieve" + i).style.color = "white";
       }
     }
+=======
+        document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
+        document.getElementById("lck_text" + (i + 1)).style.color = "#2BFF00";
+      }
+>>>>>>> feb1c8e2ec021c3a619c9f7b029369bf1b9c74ce
 
+      else
+      {
+        document.getElementById("achieve" + i).style.color = "white";
+      }
+    }
     else
     {
       if(array[i] == 1)
@@ -78,11 +93,18 @@ function achieveEarn(index)
 {
   achievementProgress[index] = 1;
   document.getElementById("achieve" + index).style.color = "gold";
+<<<<<<< HEAD
 
   if (index < 6)
   {
     document.getElementById("lck_text" + index).innerHTML = "Unlocked";
     document.getElementById("lck_text" + index).style.color = "#2BFF00";
+=======
+  if(index < 6)
+  {
+    document.getElementById("lck_text" + (index + 1)).innerHTML = "Unlocked";
+    document.getElementById("lck_text" + (index + 1)).style.color = "#2BFF00";
+>>>>>>> feb1c8e2ec021c3a619c9f7b029369bf1b9c74ce
   }
 }
 
@@ -439,6 +461,7 @@ function resetGame()
     /*
     var gameSave = {};
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
+<<<<<<< HEAD
     achievementProgress = [0,0,0,0,0,0,0,0,0];
     achieveEarn(8);
     localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
@@ -455,6 +478,14 @@ function resetGame()
     achieveEarn(8);
     localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
     location.reload();
+=======
+    achievementProgress.forEach((element, index) => {
+      achievementProgress[index] = 0;
+    });
+    achieveEarn(8);
+    localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
+    location.reload();
+>>>>>>> feb1c8e2ec021c3a619c9f7b029369bf1b9c74ce
   }
 }
 
