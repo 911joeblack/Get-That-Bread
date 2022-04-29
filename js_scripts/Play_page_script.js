@@ -48,6 +48,7 @@ function achievementReload(array)
     {
       document.getElementById("achieve" + i).style.color = "gold";
       document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
+      document.getElementById("lck_text" + (i + 1)).style.color = "#2BFF00";
     }
     else
     {
