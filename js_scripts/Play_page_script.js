@@ -38,7 +38,7 @@ var planetGenRate = 10000;
 
 /*To read left to right top to bottom
 on the achievement menu*/
-let achievementProgress = [0,0,0,0,0,0,0,0,0];
+let achievementProgress = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function achievementReload(array)
 {
@@ -47,6 +47,7 @@ function achievementReload(array)
     if(array[i] == 1)
     {
       document.getElementById("achieve" + i).style.color = "gold";
+      document.getElementById("lck_text" + (i + 1)).innerHTML = "Unlocked";
     }
     else
     {
@@ -325,71 +326,6 @@ function addToScore()
   }
   document.getElementById("score").innerHTML = score;
 }
-
-function openNav()
-{
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav()
-{
-  document.getElementById("myNav").style.width = "0%";
-}
-
-// Bread Slice Image
-function changeImage()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/bread_slice.png";
-  image.height = "340";
-  image.width = "260";
-}
-
-// Bread Roll Image
-function changeImage2()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/bread_roll.png";
-  image.height = "400";
-  image.width = "500";
-}
-
-// Concha Image
-function changeImage3()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/concha.png";
-  image.height = "400";
-  image.width = "650";
-}
-
-// Bagel Image
-function changeImage4()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/bagel.png";
-  image.height = "400";
-  image.width = "600";
-}
-
-// English Muffin Image
-function changeImage5()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/english_muffins.png";
-  image.height = "300";
-  image.width = "600";
-}
-
-// Banana Crepe Image
-function changeImage6()
-{
-  var image = document.getElementById("m_image");
-  image.src = "../pictures/banana_crepe.png";
-  image.height = "400";
-  image.width = "500";
-}
-
 
 function loadGame()
 {
