@@ -372,6 +372,15 @@ function changeImage4()
   image.width = "600";
 }
 
+// ENglish Muffin Image
+function changeImage5()
+{
+  var image = document.getElementById("m_image");
+  image.src = "../pictures/english_muffins.png";
+  image.height = "300";
+  image.width = "600";
+}
+
 function loadGame()
 {
   var savedGame = JSON.parse(localStorage.getItem("gameSave"));
