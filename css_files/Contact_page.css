@@ -1,0 +1,36 @@
+.topnav
+{
+	overflow: visible;
+	background: transparent;
+	width: 100%;
+}
+
+.topnav a
+{
+	float: left;
+	color: #adadad;
+	text-align: left;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	background: rgba(39, 37, 37, 0.8);
+}
+
+.topnav a:hover
+{
+	background-color: #ddd;
+	color: lightslategray;
+}
+
+.topnav a.active
+{
+	color: rgb(255, 255, 255);
+	text-decoration: underline;
+}
+
+.ic_link
+{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
