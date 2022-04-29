@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>register</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+    <!--message when error-->
+    {% for message in messages %}
+	  <h3 style="color: red;">{{message}}</h3>
+	  {% endfor %}
+    <!--register form-->
+    <form method="POST" action="register">
+        {% csrf_token %}
+      <input type="text" name="username" placeholder="name"/>
+      <input type="password" name="password" placeholder="password"/>
+      <input type="text" name="email" placeholder="email address"/>
+      <button>create</button>
+      <!--go login page if having a account-->
+      <p class="message">Already registered? <a href="login">Sign In</a></p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .main{
+			position: relative;
+			top: 150px;
+		    }
+		    .fac{
+			display: none;
+		    }
+		    .tp{
+			display: block;
+		    }
+        </style>
+    </head>
+    <body>
+    <center>
+        <div class="main">
+            <p>welcome, {{user.username}}</p>
+            <h1 style="color: green;">
+                Playing_page_testing
+            </h1>
+            
+            <h4>
+                Page of countering the numbers of users clicking on button
+            </h4>
+            <!--game access-->
+            <p class="tp"><button id="btn" onclick="dothis()"><img src="{% static 'images/Red.png' %}" width="130"/><br>click this for a bread</br></button></p>
+            
+            <div class="fac"><p>
+                <button id="down"><img src="{% static 'images/fa.png' %}" width="100"><br>set factory on working</br></button>
+            </p> </div>
+        
+            <div>
+                User clicked <span
+                id="display">0</span> Times(this will be cookie)
+                <button id="reset">reset</button>
+                <p class="ask_fa"><button onclick="ask1()">buy a small factory for 50?</button></p>
+            </div>
+
+            <!--for save and load method-->
+            <div class="save_load" id="S_L"style="display: block;">
+                <button onclick="show_sa()">save?</button>
+                <button onclick="show_relo()">reload?</button>
+            </div>
+            <div id="cha" class="cha" style="display: none;">
+                <form action="play_page" method="post">
+                    {% csrf_token %}
+                    <input type="name" name="name" value="{{user.username}}" readonly>
+                    <input type="number" name="point" id="Point" value="0"readonly><br>
+                    <button name="submit"value="save">save</button>
+                </form>
+            </div>
+            <div id="r" class="r" style="display: none;">
+                <form action="play_page" method="post">
+                    {% csrf_token %}
+                    <input type="name" name="name"value="{{user.username}}" readonly><br>
+                    <button name="submit"value="reload" onclick="load()">reload</button>
+                </form>
+            </div>
+            <!--error message-->
+            {% for message in messages %}
+            <h3 style="color: red;">{{message}}</h3>
+            {% endfor %}
+        
+        </div>
+        </center>
+        <script type="text/javascript">
+            var count = 0;
+            var disp = document.getElementById("display");
+            var btn = document.getElementById("btn");
+            var fa_count = 0;
+            var element3 = document.getElementsByClassName('ask_fa');
+        
+            const dow = document.querySelector('#down')
+            
+            //then window first open check if the user is guest
+            //if guest is ture then no display of save_load method
+            window.onload=function(){
+                if("{{user.username}}"=="guest"){
+                    var ele1 = document.getElementsByClassName('save_load');
+                    ele1[0].style.display = 'none';
+                }
+
+                if({score:output}!=NULL){
+                    count={score:output};
+                    disp.innerHTML = count;
+                }
+            }
+
+            //simple click and adding
+            function dothis() {
+                count++;
+                disp.innerHTML = count;
+                document.getElementById('Point').value=count ; 
+                }
+                
+            //hold left key as clicking
+            function continuosIncerment(){
+                count++;
+                disp.innerHTML = count;
+                fa_count++;
+                
+                document.getElementById('Point').value=count ; 
+                timer = setTimeout(continuosIncerment,300);
+            }
+        
+            function timeoutClear() {
+                  clearTimeout(timer);
+            }
+        
+            dow.addEventListener('mousedown',continuosIncerment);
+            dow.addEventListener('mouseup', timeoutClear);
+            dow.addEventListener('mouseleave', timeoutClear);
+        
+            //reset everything to 0
+            reset.onclick=function(){
+                count= 0;
+                fa_count=0;
+                disp.innerHTML = count;
+                var element = document.getElementsByClassName('fac');
+                element[0].style.display = 'none';
+                element = document.getElementsByClassName('tp');
+                element[0].style.display = 'block';
+            }
+        
+            //ask if user want to have a factary(atuo clicking)
+            function ask1(){
+                var element1 = document.getElementsByClassName('tp');
+                /*console.log(element1);*/
+                element1[0].style.display = 'none';
+        
+                var element2 = document.getElementsByClassName('fac');
+                console.log(element2);
+                element2[0].style.display = 'block';
+        
+                var element3 = document.getElementsByClassName('ask_fa');
+                console.log(element3);
+                element3[0].style.display = 'none';
+        
+                count=count-50;
+                disp.innerHTML = count;
+            }
+            
+            //show saving method
+            function show_sa(){
+                var ele1 = document.getElementsByClassName('save_load');
+                ele1[0].style.display = 'none';
+                var ele2 = document.getElementsByClassName('cha')
+                ele2[0].style.display = 'block';
+            }
+            //show reload method
+            function show_relo(){
+                var ele1 = document.getElementsByClassName('save_load');
+                ele1[0].style.display = 'none';
+                var ele2 = document.getElementsByClassName('r')
+                ele2[0].style.display = 'block';
+            }
+
+            function reload(){
+                count={score:output};
+                disp.innerHTML = count;
+            }
+        </script>
+        
+        </body>
+</html>

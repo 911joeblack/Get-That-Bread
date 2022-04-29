@@ -70,6 +70,7 @@ function achievementReload(array)
       {
         document.getElementById("achieve" + i).style.color = "white";
       }
+
     }
   }
 }
@@ -98,7 +99,6 @@ function buyCursor()
     document.getElementById("score").innerHTML = score;
     document.getElementById("cursor_cost").innerHTML = cursorCost;
     document.getElementById("total_cursors").innerHTML = totalCursors;
-
     achieveEarn(3);
     if(totalCursors == 1)
     {
@@ -354,7 +354,6 @@ function addToScore()
 function loadGame()
 {
   var savedGame = JSON.parse(localStorage.getItem("gameSave"));
-
   if (typeof savedGame.score != "undefined") score = savedGame.score;
   if (typeof savedGame.clickingPower != "undefined") clickingPower = savedGame.clickingPower;
   if (typeof savedGame.cursorCost != "undefined") cursorCost = savedGame.cursorCost;
@@ -392,7 +391,6 @@ function loadGame()
 
 function saveGame()
 {
-
   var progObj = JSON.stringify(achievementProgress);
   localStorage.setItem("achievementProgress", progObj);
 
@@ -455,6 +453,7 @@ function resetGame()
     achieveEarn(8);
     localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
     location.reload();
+    achievementReload(achievementProgress);
   }
 }
 
