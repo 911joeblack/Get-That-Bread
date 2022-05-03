@@ -107,7 +107,7 @@ body
   background-color: #b5b5b5;
   transition: all .2s ease-in-out;
   border-radius: 1%;
-  width: 100%;
+  width: 96%;
   margin: 10px 10px 10px 10px;
 }
 
@@ -126,7 +126,7 @@ body
 {
   height: 75px;
   width: 75px;
-  margin-bottom: -4%;
+  margin-bottom: -2%;
 	margin-left: 1%;
   margin-top: 1%;
 }
@@ -134,7 +134,7 @@ body
 .breadShop #item_cost p
 {
   margin: 0px;
-  width: 60%;
+  width: 65%;
 }
 
 .breadShop #item_cost p:first-of-type
@@ -222,7 +222,7 @@ body
 	background-color: #b5b5b5;
 	transition: all .2s ease-in-out;
 	border-radius: 1%;
-	width: 93%;
+	width: 95%;
 	margin: 10px 10px 10px 10px;
 	padding-right: 20px;
 }

@@ -36,8 +36,8 @@ var totalPlanets = 0;
 var planetUpgradeCost = 100000000;
 var planetGenRate = 10000;
 
-/*To read left to right top to bottom
-on the achievement menu*/
+/* To read left to right top to bottom
+on the achievement menu */
 let achievementProgress = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function achievementReload(array)
@@ -79,7 +79,7 @@ function achieveEarn(index)
   achievementProgress[index] = 1;
   document.getElementById("achieve" + index).style.color = "gold";
 
-  if (index < 6)
+  if (index < 5)
   {
     document.getElementById("lck_text" + index).innerHTML = "Unlocked";
     document.getElementById("lck_text" + index).style.color = "#2BFF00";
