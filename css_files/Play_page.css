@@ -242,6 +242,8 @@ body
 
 .upgrade #upgrade_cost p
 {
+  font-size: 16px;
+  font-family: roboto;
 	margin: 0px;
 	width: 65%;
 }
