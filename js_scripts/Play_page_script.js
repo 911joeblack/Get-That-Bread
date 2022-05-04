@@ -44,7 +44,7 @@ function achievementReload(array)
 {
   for(let i = 0; i < array.length; i++)
   {
-    if (i < 5)
+    if (i < 8)
     {
       if(array[i] == 1)
       {
@@ -79,7 +79,7 @@ function achieveEarn(index)
   achievementProgress[index] = 1;
   document.getElementById("achieve" + index).style.color = "gold";
 
-  if (index < 5)
+  if (index < 8)
   {
     document.getElementById("lck_text" + index).innerHTML = "Unlocked";
     document.getElementById("lck_text" + index).style.color = "#2BFF00";
@@ -436,16 +436,6 @@ function resetGame()
 {
   if (confirm("Are you sure you want to reset your game?"))
   {
-    /*
-    var gameSave = {};
-    localStorage.setItem("gameSave", JSON.stringify(gameSave));
-    achievementProgress = [0,0,0,0,0,0,0,0,0];
-    achieveEarn(8);
-    localStorage.setItem("achievementProgress", JSON.stringify(achievementProgress));
-    location.reload();
-    achievementReload(achievementProgress);
-    */
-
     var gameSave = {};
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
     achievementProgress.forEach((element, index) => {

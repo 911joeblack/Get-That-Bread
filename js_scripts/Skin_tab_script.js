@@ -13,8 +13,8 @@ function changeImage1()
 {
   var image = document.getElementById("m_image");
   image.src = "../pictures/bread_slice.png";
-  image.height = "340";
-  image.width = "260";
+  image.height = "380";
+  image.width = "300";
 }
 
 // Bread Roll Image
@@ -24,8 +24,8 @@ function changeImage2()
   {
     var image = document.getElementById("m_image");
     image.src = "../pictures/bread_roll.png";
-    image.height = "400";
-    image.width = "500";
+    image.height = "350";
+    image.width = "450";
   }
 
   else
@@ -75,13 +75,13 @@ function changeImage5()
   {
     var image = document.getElementById("m_image");
     image.src = "../pictures/english_muffins.png";
-    image.height = "300";
-    image.width = "600";
+    image.height = "350";
+    image.width = "700";
   }
 
   else
   {
-    alert("Unlock Achievement #4 to get English Muffins skin");
+    alert("Unlock Achievement #4 to get English Muffin skin");
   }
 }
 
@@ -93,11 +93,62 @@ function changeImage6()
     var image = document.getElementById("m_image");
     image.src = "../pictures/banana_crepe.png";
     image.height = "400";
-    image.width = "500";
+    image.width = "450";
   }
 
   else
   {
     alert("Unlock Achievement #5 to get Banana Crepe skin");
+  }
+}
+
+// Corn Bread Image
+function changeImage7()
+{
+  if (achievementProgress[5] == 1)
+  {
+    var image = document.getElementById("m_image");
+    image.src = "../pictures/corn_bread.png";
+    image.height = "400";
+    image.width = "400";
+  }
+
+  else
+  {
+    alert("Unlock Achievement #6 to get Corn Bread skin");
+  }
+}
+
+// Churros Image
+function changeImage8()
+{
+  if (achievementProgress[6] == 1)
+  {
+    var image = document.getElementById("m_image");
+    image.src = "../pictures/churros.png";
+    image.height = "400";
+    image.width = "450";
+  }
+
+  else
+  {
+    alert("Unlock Achievement #7 to get Churro skin");
+  }
+}
+
+// Cinnamon Roll Image
+function changeImage9()
+{
+  if (achievementProgress[7] == 1)
+  {
+    var image = document.getElementById("m_image");
+    image.src = "../pictures/cinnamon_roll.png";
+    image.height = "350";
+    image.width = "700";
+  }
+
+  else
+  {
+    alert("Unlock Achievement #8 to get Cinnamon Roll skin");
   }
 }
