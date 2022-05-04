@@ -1,3 +1,6 @@
+var image = document.getElementById("m_image");
+image.src = "../pictures/bread_slice.png";
+
 function openNav()
 {
   document.getElementById("myNav").style.width = "100%";
@@ -11,7 +14,7 @@ function closeNav()
 // Bread Slice Image
 function changeImage1()
 {
-  var image = document.getElementById("m_image");
+  image = document.getElementById("m_image");
   image.src = "../pictures/bread_slice.png";
   image.height = "380";
   image.width = "300";
@@ -22,7 +25,7 @@ function changeImage2()
 {
   if (achievementProgress[0] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/bread_roll.png";
     image.height = "350";
     image.width = "450";
@@ -39,7 +42,7 @@ function changeImage3()
 {
   if (achievementProgress[1] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/concha.png";
     image.height = "400";
     image.width = "650";
@@ -56,7 +59,7 @@ function changeImage4()
 {
   if (achievementProgress[2] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/bagel.png";
     image.height = "400";
     image.width = "600";
@@ -73,7 +76,7 @@ function changeImage5()
 {
   if (achievementProgress[3] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/english_muffins.png";
     image.height = "350";
     image.width = "700";
@@ -90,7 +93,7 @@ function changeImage6()
 {
   if (achievementProgress[4] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/banana_crepe.png";
     image.height = "400";
     image.width = "450";
@@ -107,7 +110,7 @@ function changeImage7()
 {
   if (achievementProgress[5] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/corn_bread.png";
     image.height = "400";
     image.width = "400";
@@ -124,7 +127,7 @@ function changeImage8()
 {
   if (achievementProgress[6] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/churros.png";
     image.height = "400";
     image.width = "450";
@@ -141,7 +144,7 @@ function changeImage9()
 {
   if (achievementProgress[7] == 1)
   {
-    var image = document.getElementById("m_image");
+    image = document.getElementById("m_image");
     image.src = "../pictures/cinnamon_roll.png";
     image.height = "350";
     image.width = "700";

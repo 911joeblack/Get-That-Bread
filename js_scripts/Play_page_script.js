@@ -36,8 +36,7 @@ var totalPlanets = 0;
 var planetUpgradeCost = 100000000;
 var planetGenRate = 10000;
 
-/* To read left to right top to bottom
-on the achievement menu */
+/* To read left to right top to bottom on the achievement menu */
 let achievementProgress = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function achievementReload(array)
@@ -426,7 +425,7 @@ function saveGame()
     totalGenRate: totalGenRate,
     totalClicks: totalClicks,
     storePurchases: storePurchases,
-    initialUpgrade: initialUpgrade
+    initialUpgrade: initialUpgrade,
   };
 
   localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -438,6 +437,7 @@ function resetGame()
   {
     var gameSave = {};
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
+
     achievementProgress.forEach((element, index) => {
       achievementProgress[index] = 0;
     });
@@ -501,4 +501,4 @@ setInterval(function()
 setInterval(function()
 {
   saveGame();
-}, 3000);
+}, 10000);
